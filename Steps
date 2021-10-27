@@ -40,3 +40,29 @@ Can also check the 'headers' section in response to see what all paramters are g
 
 ------------------------------------------------------------------------------------------------------------------
 
+CORS
+
+If we write our frontend code in codepen, and try to access the url, we get cors error since both are at different domain
+for this, we need to allow cors at server side
+
+CodePen Code:
+HTML:
+<button id="get">Get Posts</button>
+<button id="post">Create a Post</button>
+
+JS:
+const getButton = document.getElementById('get');
+const postButton = document.getElementById('post');
+
+getButton.addEventListener('click', () => {
+  fetch('http://localhost:8080/feed/posts')
+  .then(res => res.json())
+  .then(resData => console.log(resData))
+  .catch(err => console.log(err));
+})
+
+We get the response in console:
+posts: Array(1)
+0:
+content: "This is the first post."
+title: "First Post"
