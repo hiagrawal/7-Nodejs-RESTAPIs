@@ -1,0 +1,8 @@
+- Create a new folder
+- add gitignore to ignore nodemodules
+- run npm init for package.josn file
+- install express : npm install --save express
+- install nodemon for runtime watch as only dev dependency: npm install --save-dev nodemon
+- add 'start' script in package.json file
+- add app.js file
+- install body parser : npm install --save body-parser
