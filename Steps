@@ -95,3 +95,9 @@ While sending Request: When we see in network tab, we see 2 request is being sen
 One is POST and one is Options. Options is automatically sent by the browser 
 Browser uses this to check whatever request we have made lets say POST etc if that is allowed or not (that we allowed using Allow-Origin)
 So this is a mechanism used by browser to validate the request
+
+------------------------------------------------------------------------------------------------------------------------
+
+Useful resources:
+
+Example: Build a Complete RESTful API from Scratch: https://academind.com/learn/node-js/building-a-restful-api-with/
