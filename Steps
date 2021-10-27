@@ -59,6 +59,22 @@ getButton.addEventListener('click', () => {
   .then(res => res.json())
   .then(resData => console.log(resData))
   .catch(err => console.log(err));
+});
+
+postButton.addEventListener('click', () => {
+  fetch('http://localhost:8080/feed/post', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: 'A CodePen Post',
+      content: 'Created via CodePen'
+    }),
+    headers: {
+      'Content-type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(resData => console.log(resData))
+  .catch(err => console.log(err));
 })
 
 We get the response in console:
@@ -66,3 +82,16 @@ posts: Array(1)
 0:
 content: "This is the first post."
 title: "First Post"
+
+while sending post request to server and sending data:
+data should be JSON as our server can accept and parse JSON data only. 
+Remember we can parse plain text as well but that is unnecessarily difficult as it does not has any clear data structure
+
+For sending JSON data: we can use JSON.stringify provided by JS which converts javascript object to JSON
+Also we will need to set the header to 'application/json' else it will be 'plain/text' by default (and we can see that in network tab in Request Headers) 
+and server will not be able to read/understand/parse the same
+
+While sending Request: When we see in network tab, we see 2 request is being sent for POST
+One is POST and one is Options. Options is automatically sent by the browser 
+Browser uses this to check whatever request we have made lets say POST etc if that is allowed or not (that we allowed using Allow-Origin)
+So this is a mechanism used by browser to validate the request

@@ -12,7 +12,9 @@ app.use(bodyParser.json()); //application/json
 app.use((req,res,next) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); //allow access from all domains //can mention specific domain also
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE'); //can specify all or whatever methods we want request from other domain to access
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); //this is headers client side code (frontend) might set on their requests
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); 
+    //this is headers client side code (frontend) might set on their requests like we set for 'application/json'. 
+    //If this allow headers for content type was not added here, our request would have failed and would CORS error
     next();
 })
 
